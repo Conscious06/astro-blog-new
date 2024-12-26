@@ -8,7 +8,7 @@
 import {defineCliConfig} from 'sanity/cli'
 
 const projectId = process.env.SANITY_STUDIO_PROJECT_ID || '<your project ID>'
-const dataset = process.env.SANITY_STUDIO_DATASET || 'SANITY_STUDIO_DATASET'
+const dataset = process.env.SANITY_STUDIO_DATASET || 'dalyanguider'
 
 export default defineCliConfig({
   api: {
