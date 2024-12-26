@@ -3,10 +3,103 @@ import Card from "../components/Card.astro";
 import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 import { getPosts } from "../utils/sanity";
+import Navigation from '../components/Navigation.astro';
 
 const posts = await getPosts();
 ---
+<Layout title="TurkeyTravelTips - Discover the Beauty of Turkey">
+  <Navigation />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1589561454226-796a8aa89b05?q=80&w=2000" 
+          alt="Cappadocia Hot Air Balloons" 
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-black/30"></div>
+      </div>
+      
+      <div class="relative z-10 text-center text-white px-4">
+        <h1 class="text-5xl md:text-7xl font-bold playfair mb-6 hero-title opacity-0">
+          Discover Turkey's Magic
+        </h1>
+        <p class="text-xl md:text-2xl max-w-2xl mx-auto mb-8 hero-subtitle opacity-0">
+          From ancient ruins to modern marvels, experience the wonder of Turkey through local eyes
+        </p>
+        <a 
+          href="/destinations" 
+          class="inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold px-8 py-3 rounded-full transition-colors duration-200 hero-button opacity-0"
+        >
+          Start Exploring
+        </a>
+      </div>
+    </section>
 
+    <!-- Featured Posts Preview -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <h2 class="text-4xl font-bold playfair text-gray-900 mb-12 text-center">
+        Popular Destinations
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[1, 2, 3].map((_, index) => (
+          <article class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200">
+            <img 
+              src={`https://source.unsplash.com/random/800x600?turkey,travel&sig=${index}`}
+              alt="Turkey Travel"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-2 playfair">Exploring Istanbul's Hidden Gems</h3>
+              <p class="text-gray-600 mb-4">Discover the secret spots and local favorites in Turkey's most vibrant city...</p>
+              <a href="/post" class="text-orange-600 hover:text-orange-700 font-medium">Read More →</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  import { gsap } from 'gsap';
+
+  // Hero section animations
+  gsap.to('.hero-title', {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    delay: 0.5,
+    ease: 'power3.out'
+  });
+
+  gsap.to('.hero-subtitle', {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    delay: 0.8,
+    ease: 'power3.out'
+  });
+
+  gsap.to('.hero-button', {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    delay: 1.1,
+    ease: 'power3.out'
+  });
+</script>
+
+<style>
+  .hero-title,
+  .hero-subtitle,
+  .hero-button {
+    transform: translateY(20px);
+  }
+</style>
 <Layout title="Welcome to Astro.">
   <section>
     {posts.length ? posts.map((post) => <Card post={post} />) : <Welcome />}
