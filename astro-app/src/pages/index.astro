@@ -63,36 +63,6 @@ const posts = await getPosts();
     </section>
   </main>
 </Layout>
-
-<script>
-  import { gsap } from 'gsap';
-
-  // Hero section animations
-  gsap.to('.hero-title', {
-    opacity: 1,
-    y: 0,
-    duration: 1,
-    delay: 0.5,
-    ease: 'power3.out'
-  });
-
-  gsap.to('.hero-subtitle', {
-    opacity: 1,
-    y: 0,
-    duration: 1,
-    delay: 0.8,
-    ease: 'power3.out'
-  });
-
-  gsap.to('.hero-button', {
-    opacity: 1,
-    y: 0,
-    duration: 1,
-    delay: 1.1,
-    ease: 'power3.out'
-  });
-</script>
-
 <style>
   .hero-title,
   .hero-subtitle,
