@@ -5,7 +5,7 @@ import {schemaTypes} from './src/schemaTypes'
 
 // Environment variables for project configuration
 const projectId = process.env.SANITY_STUDIO_PROJECT_ID || 'your-projectID'
-const dataset = process.env.SANITY_STUDIO_DATASET || 'production'
+const dataset = process.env.SANITY_STUDIO_DATASET || 'dalyanguider'
 
 export default defineConfig({
   name: 'sanity-template-astro-clean',
